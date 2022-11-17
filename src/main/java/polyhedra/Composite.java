@@ -68,8 +68,9 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-    	temp = new Polyhedron();
+    	Polyhedron temp = new Polyhedron();
     	temp.read(scanner);
+    	temp = null;
     }
 
     /**
