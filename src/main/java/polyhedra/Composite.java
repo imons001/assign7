@@ -10,7 +10,7 @@ import java.util.Iterator;
  * other Polyhedra. This,in theory, can include Composite objects
  * composed of other (nested) Composite objects.
  *
- * @author REPLACE_THIS_WITH_YOUR_NAME
+ * @author INDI MONSON
  */
 public class Composite extends Polyhedron
     implements Cloneable, Iterable<Polyhedron>
@@ -43,7 +43,8 @@ public class Composite extends Polyhedron
         super("Composite");
 
         allPolyhedra = new Vector<Polyhedron>();
-
+        
+        allPolyhedra = src;
     }
 
     /**
@@ -55,7 +56,7 @@ public class Composite extends Polyhedron
      */
     public void add(Polyhedron toAdd)
     {
-
+    	allPolyhedra.add(toAdd);
     }
 
     /**
@@ -67,7 +68,11 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-
+    	temp = new Polyhedron();
+    	temp.read(scanner);
+    	
+    	allPolyhedron.add(temp);
+    	temp = null;
     }
 
     /**
@@ -80,7 +85,7 @@ public class Composite extends Polyhedron
      */
     public void scale(double scalingFactor)
     {
-
+    	
     }
 
     /**
