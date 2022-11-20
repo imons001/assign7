@@ -42,11 +42,11 @@ public class Composite extends Polyhedron
     {
         super("Composite");
 
-        this.allPolyhedra = new Vector<Polyhedron>();
+        allPolyhedra = new Vector<Polyhedron>();
         
-        this.allPolyhedra = src.allPolyhedra;
+        allPolyhedra = src.allPolyhedra;
         
-        this.boundingBox = src.getBoundingBox();
+        boundingBox = src.getBoundingBox();
     }
 
     /**
@@ -72,6 +72,8 @@ public class Composite extends Polyhedron
     public void read(Scanner scanner)
     {
     	int numPolyhedra = scanner.nextInt();
+    	
+    	allPolyhedra = new Vector<Polyhedron>();
     	
     	System.out.println("numPolyhedra " + numPolyhedra + "\n");
     	
