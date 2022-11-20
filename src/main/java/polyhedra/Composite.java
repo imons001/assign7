@@ -94,6 +94,7 @@ public class Composite extends Polyhedron
     {
     	for (Polyhedron poly : this.allPolyhedra) {
     		poly.scale(scalingFactor);
+    		this.boundingBox.merge(poly.getBoundingBox());
     	}
     }
 
