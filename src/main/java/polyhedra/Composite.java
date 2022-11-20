@@ -43,7 +43,10 @@ public class Composite extends Polyhedron
         super("Composite");
 
         allPolyhedra = new Vector<Polyhedron>();
-
+        
+        allPolyhedra = src.allPolyhedra;
+        
+        this.boundingBox = src.getBoundingBox();
     }
 
     /**
@@ -116,9 +119,7 @@ public class Composite extends Polyhedron
     @Override
     public Polyhedron clone()
     {
-    	Composite empComposite = null;
-    	empComposite=(Composite) this.clone();
-        return empComposite;
+    	return new Composite(this);
     }
 
     /**
