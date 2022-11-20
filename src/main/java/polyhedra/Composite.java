@@ -80,9 +80,6 @@ public class Composite extends Polyhedron
     		allPolyhedra.add(newPolyhedron);
     		boundingBox.merge(newPolyhedron.getBoundingBox());
     	}
-    	
-    	System.out.println(this.getBoundingBox());
-    	
     }
 
     /**
@@ -98,8 +95,6 @@ public class Composite extends Polyhedron
     	for (Polyhedron poly : this.allPolyhedra) {
     		poly.scale(scalingFactor);
     	}
-    	
-    	this.boundingBox.scale(scalingFactor);
     }
 
     /**
