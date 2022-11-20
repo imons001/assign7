@@ -71,13 +71,12 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-    	int numPolyhedra;
-    	numPolyhedra = scanner.nextInt();
+    	int numPolyhedra = scanner.nextInt();
     	
     	for (int i = 0; i < numPolyhedra; i++) {
     		Polyhedron newPolyhedron = PolyhedronFactory.createAndRead(scanner);
-    		this.allPolyhedra.add(newPolyhedron);
-    		this.boundingBox.merge(newPolyhedron.getBoundingBox());
+    		allPolyhedra.add(newPolyhedron);
+    		boundingBox.merge(newPolyhedron.getBoundingBox());
     	}
     }
 
@@ -99,7 +98,7 @@ public class Composite extends Polyhedron
     }
 
     /**
-     * Retrive the number of Polyhedra.
+     * Retrieve the number of Polyhedra.
      *
      * @return the number of Polyhedra that comprise this Composite object
      */
