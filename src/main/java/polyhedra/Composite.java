@@ -10,7 +10,7 @@ import java.util.Iterator;
  * other Polyhedra. This,in theory, can include Composite objects
  * composed of other (nested) Composite objects.
  *
- * @author INDI MONSON
+ * @author REPLACE_THIS_WITH_YOUR_NAME
  */
 public class Composite extends Polyhedron
     implements Cloneable, Iterable<Polyhedron>
@@ -43,8 +43,7 @@ public class Composite extends Polyhedron
         super("Composite");
 
         allPolyhedra = new Vector<Polyhedron>();
-        
-        allPolyhedra.add(src);
+
     }
 
     /**
@@ -56,7 +55,8 @@ public class Composite extends Polyhedron
      */
     public void add(Polyhedron toAdd)
     {
-    	allPolyhedra.add(toAdd);
+    	this.allPolyhedra.add(toAdd);
+    	this.boundingBox.merge(toAdd.getBoundingBox());
     }
 
     /**
@@ -68,9 +68,16 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-    	Polyhedron temp;
-    	temp.read(scanner);
-    	temp = null;
+    	int numPolyhedra;
+    	numPolyhedra = scanner.nextInt();
+    	
+    	for (int i = 0; i < numPolyhedra; i++) {
+    		Polyhedron newPolyhedron = PolyhedronFactory.createAndRead(scanner);
+    		this.allPolyhedra.add(newPolyhedron);
+    		
+    		this.boundingBox.merge(newPolyhedron.getBoundingBox());
+    	}
+    	
     }
 
     /**
@@ -83,7 +90,11 @@ public class Composite extends Polyhedron
      */
     public void scale(double scalingFactor)
     {
+    	for (Polyhedron poly : this.allPolyhedra) {
+            poly.scale(scalingFactor);
+        }
     	
+    	this.boundingBox.scale(scalingFactor);
     }
 
     /**
@@ -105,7 +116,9 @@ public class Composite extends Polyhedron
     @Override
     public Polyhedron clone()
     {
-        return new Composite(this);
+    	Composite empComposite = null;
+    	empComposite=(Composite) this.clone();
+        return empComposite;
     }
 
     /**
@@ -118,8 +131,17 @@ public class Composite extends Polyhedron
     @Override
     public String toString()
     {
+    	StringBuilder newString = new StringBuilder();
 
-        return "Composite.toString not implemented";
+        newString.append(super.toString());
+        newString.append(this.size() + " polyhedra" + "\n");
+        
+        // Complete this function
+        for (Polyhedron poly : this.allPolyhedra) {
+            newString.append("  " + poly.toString() + "\n");
+        }
+        
+        return newString.toString();
     }
 }
 
