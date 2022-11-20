@@ -95,9 +95,8 @@ public class Composite extends Polyhedron
     public void scale(double scalingFactor)
     {
     	for (Polyhedron poly : this.allPolyhedra) {
-    		System.out.println("Already Scaling");
-            poly.scale(scalingFactor);
-        }
+    		poly.scale(scalingFactor);
+    	}
     	
     	this.boundingBox.scale(scalingFactor);
     }
