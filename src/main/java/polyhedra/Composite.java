@@ -73,6 +73,8 @@ public class Composite extends Polyhedron
     {
     	int numPolyhedra = scanner.nextInt();
     	
+    	System.out.println("numPolyhedra " + "/n");
+    	
     	for (int i = 0; i < numPolyhedra; i++) {
     		Polyhedron newPolyhedron = PolyhedronFactory.createAndRead(scanner);
     		this.allPolyhedra.add(newPolyhedron);
