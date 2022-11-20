@@ -77,10 +77,8 @@ public class Composite extends Polyhedron
     	for (int i = 0; i < numPolyhedra; i++) {
     		Polyhedron newPolyhedron = PolyhedronFactory.createAndRead(scanner);
     		this.allPolyhedra.add(newPolyhedron);
+    		this.boundingBox = newPolyhedron.getBoundingBox();
     	}
-    	
-    	this.boundingBox.merge(newPolyhedron.getBoundingBox());
-    	
     }
 
     /**
