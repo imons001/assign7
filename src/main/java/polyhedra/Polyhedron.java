@@ -105,7 +105,6 @@ public abstract class Polyhedron implements Cloneable {
     {
         Polyhedron copy = original.clone();
         copy.scale(sFactor);
-        System.out.println("When scaled");
 
         return copy;
     }
