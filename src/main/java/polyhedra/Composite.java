@@ -61,7 +61,7 @@ public class Composite extends Polyhedron
     public void add(Polyhedron toAdd)
     {
     	allPolyhedra.add(toAdd);
-    	this.boundingBox = toAdd.getBoundingBox();
+    	this.boundingBox.merge(toAdd.getBoundingBox());
     }
 
     /**
