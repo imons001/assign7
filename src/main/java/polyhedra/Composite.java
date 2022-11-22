@@ -58,8 +58,8 @@ public class Composite extends Polyhedron
      */
     public void add(Polyhedron toAdd)
     {
-    	//allPolyhedra.add(toAdd);
-    	//this.boundingBox.merge(toAdd.getBoundingBox());
+    	allPolyhedra.add(toAdd);
+    	this.boundingBox.merge(toAdd.getBoundingBox());
     }
 
     /**
@@ -73,7 +73,7 @@ public class Composite extends Polyhedron
     {
     	int numPolyhedra = scanner.nextInt();
     	
-    	allPolyhedra = new Vector<Polyhedron>();
+    	//allPolyhedra = new Vector<Polyhedron>();
     	
     	for (int i = 0; i < numPolyhedra; i++) {
     		Polyhedron newPolyhedron = PolyhedronFactory.createAndRead(scanner);
