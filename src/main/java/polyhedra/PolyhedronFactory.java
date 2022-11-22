@@ -29,6 +29,8 @@ public final class PolyhedronFactory {
         for (Polyhedron polyModel : knownPolyhedra) {
             // if (polyModel.getType().toLowerCase().equals(name)) {
             if (polyModel.getType().equalsIgnoreCase(name)) {
+            	System.out.println("did composite scale?");
+            	System.out.println(polyModel);
                 return polyModel.clone();
             }
         }
