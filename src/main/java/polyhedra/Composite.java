@@ -46,8 +46,6 @@ public class Composite extends Polyhedron
         
         allPolyhedra = src.allPolyhedra;
         
-        System.out.println(allPolyhedra);
-        
         boundingBox = src.getBoundingBox();
     }
 
