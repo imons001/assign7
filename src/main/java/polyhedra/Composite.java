@@ -93,11 +93,8 @@ public class Composite extends Polyhedron
     public void scale(double scalingFactor)
     {
     	for (Polyhedron poly : this.allPolyhedra) {
-    		//System.out.println(poly + "before scaling");
     		poly.scale(scalingFactor);
-    		//System.out.println(poly + "after scale");
-    		//this.boundingBox.merge(poly.getBoundingBox());
-    		//System.out.println(poly + "after scaling bounding box");
+    		this.boundingBox.merge(poly.getBoundingBox());
     	}
     }
 
@@ -120,9 +117,6 @@ public class Composite extends Polyhedron
     @Override
     public Polyhedron clone()
     {
-    	System.out.println(this);
-    	System.out.println("cloning");
-    	System.out.println(this);
     	return new Composite(this);
     }
 
