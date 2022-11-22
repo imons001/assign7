@@ -91,6 +91,7 @@ public final class CreatePolyhedra {
         while (inf.hasNext()) {
             Polyhedron poly = PolyhedronFactory.createAndRead(inf);
 
+            printPolyhedra(polyhedra, "While Reading");
             if (poly != null) {
                 polyhedra.add(poly);
             }
